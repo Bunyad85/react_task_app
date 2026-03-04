@@ -1,0 +1,976 @@
+@use "../../styles/mixin.scss" as *;
+
+.home {
+    width: 100%;
+    background-color: transparent;
+    height: auto;
+    @include flexcol();
+    padding: 32px 60px 0 60px;
+
+    .hero-wrapper {
+        width: 100%;
+        background-color: transparent;
+        height: 360px;
+
+        .hero {
+            width: 100%;
+            max-width: 1312px;
+            margin: 0 auto;
+            height: 360px;
+            background-color: transparent;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 32px;
+
+            .left,
+            .right {
+                will-change: contents;
+                background: #54A6FF;
+                max-width: 640px;
+                width: 100%;
+                border-radius: 10px;
+                min-height: 360px;
+                padding: 24px;
+                height: auto;
+                position: relative;
+                @include flexcol();
+                transition: 250ms;
+
+
+                img {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    top: 0;
+                    left: 0;
+                    z-index: 0
+                }
+
+                .text-content {
+                    @include flexcol();
+                    width: 100%;
+                    max-width: 284px;
+                    gap: 16px;
+                    position: relative;
+                    z-index: 5;
+
+                    h2 {
+                        color: #FFFFFF;
+                        font-weight: 600;
+                        max-width: 272px;
+                        width: 100%;
+                        font-size: 32px;
+                        letter-spacing: -1px;
+                    }
+
+                    p {
+                        color: #FFFFFF;
+                        font-weight: 500;
+                        font-size: 16px;
+                        max-width: 284px;
+                        width: 100%;
+                        line-height: 1.6;
+                    }
+
+                    .card-button {
+                        margin-top: 4px;
+                        padding: 10px 20px;
+                        background-color: #3563E9;
+                        border-radius: 4px;
+                        @include flex();
+                        outline: none;
+                        border: none;
+                        color: #FFFFFF;
+                        font-size: 16px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: 100ms;
+
+                        &:active {
+                            transform: scale(0.9);
+                        }
+
+                        &.primary {
+                            background-color: #54A6FF;
+                        }
+                    }
+                }
+
+                &:hover {
+                    transform: scale(1.02);
+                }
+            }
+
+            .right {
+                background: #3563E9;
+            }
+
+        }
+    }
+
+
+    .categories-section {
+        width: 100%;
+        background: transparent;
+        height: auto;
+        margin-top: 32px;
+
+        .categories {
+            width: 100%;
+            max-width: 1312px;
+            margin: 0 auto;
+            height: auto;
+            background: transparent;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            align-items: center;
+            gap: 20px;
+
+            .left-side,
+            .right-side {
+                background: #FFFFFF;
+                width: 100%;
+                min-width: 0;
+                border-radius: 10px;
+                padding: 20px 28px 15px 28px;
+                min-height: 132px;
+                @include flex();
+
+                .category-card {
+                    width: 100%;
+                    @include flexcol();
+                    gap: 16px;
+
+                    .point {
+                        @include flex();
+                        justify-content: flex-start;
+                        gap: 8px;
+                        color: #1A202C;
+                        font-size: 16px;
+                        font-weight: 600;
+
+                        .point-dot {
+                            width: 8px;
+                            height: 8px;
+                            border-radius: 50%;
+                            background-color: #3563E9;
+                            box-shadow: 0 0 0 4px rgba(53, 99, 233, 0.25);
+                        }
+                    }
+
+                    .fields {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(3, minmax(0, 1fr));
+                    }
+
+                    .field {
+                        width: 100%;
+                        @include flexcol();
+                        gap: 8px;
+                        padding: 12px 12px;
+                        border-right: 1px solid #E5E7EB;
+
+                        &:first-child {
+                            padding-left: 0;
+                        }
+
+                        &:last-child {
+                            border-right: none;
+                            padding-right: 0;
+                        }
+
+                        h4 {
+                            color: #1A202C;
+                            font-size: 16px;
+                            font-weight: 700;
+                            line-height: 1.4;
+                        }
+
+                        .field-button {
+                            width: 100%;
+                            border: none;
+                            background: transparent;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            color: #90A3BF;
+                            font-size: 12px;
+                            font-weight: 500;
+                            cursor: pointer;
+                            line-height: 1.4;
+
+                            img {
+                                width: 12px;
+                                height: 12px;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .swap-icon {
+                width: 60px;
+                height: 60px;
+                min-width: 60px;
+                min-height: 60px;
+                margin: 0;
+                border: none;
+                border-radius: 10px;
+                background: #3563E9;
+                @include flex();
+                cursor: pointer;
+                justify-self: center;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+    }
+
+    .popular-cars {
+        width: 100%;
+        max-width: 1312px;
+        margin: 30px auto 0;
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 36px 20px 20px 20px;
+
+            h5 {
+                font-size: 16px;
+                font-weight: 600;
+                color: #90a3bf;
+            }
+
+            .view-all-btn {
+                border: none;
+                background: transparent;
+                color: #3563e9;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .popular-marquee {
+            display: none;
+        }
+
+        .car-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: 100ms;
+            position: relative;
+            overflow: hidden;
+            min-width: 0;
+
+
+
+
+            .card-top {
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 12px;
+                position: relative;
+                min-width: 0;
+
+
+
+                .car-title-wrap {
+                    min-width: 0;
+
+                    h3 {
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: #1a202c;
+                        overflow-wrap: anywhere;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #90a3bf;
+                        min-height: 20px;
+                        overflow-wrap: anywhere;
+                    }
+                }
+
+                .favorite-btn {
+                    width: 24px;
+                    height: 24px;
+                    border: none;
+                    background: transparent;
+                    padding: 0;
+                    cursor: pointer;
+
+                    .favorite-icon {
+                        display: inline-flex;
+                        width: 24px;
+                        height: 24px;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .car-image-box {
+                width: 100%;
+                min-height: 130px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 18px;
+
+                .car-image {
+                    width: 100%;
+                    max-width: 220px;
+                    height: auto;
+                    object-fit: contain;
+                    display: block;
+                    margin: 0 auto;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                .car-shadow {
+                    width: 100%;
+                    max-width: 304px;
+                    height: auto;
+                    object-fit: contain;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 20px;
+                    transform: translateX(-50%);
+                    z-index: 3;
+                    opacity: 100%;
+                    pointer-events: none;
+                }
+            }
+
+            .features {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                position: relative;
+                min-width: 0;
+
+                .features-svg {
+                    display: block;
+                    width: 100%;
+                    max-width: 220px;
+                    object-fit: contain;
+                    margin: 0 auto;
+                }
+            }
+
+            .card-bottom {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                position: relative;
+                min-width: 0;
+            }
+
+            .price-box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                position: relative;
+                min-width: 0;
+
+                .price {
+                    font-size: 17px;
+                    font-weight: 700;
+                    color: #1a202c;
+                }
+
+                .old-price {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #90a3bf;
+                    text-decoration: line-through;
+                }
+            }
+
+            .detail-btn {
+                margin-top: 0;
+                border: none;
+                border-radius: 4px;
+                background: #3563e9;
+                color: #fff;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: 100ms;
+
+
+                &:hover {
+                    transform: scale(1.05);
+
+                    &:active {
+                        transform: scale(0.99);
+                    }
+
+                }
+
+
+            }
+
+        }
+
+        .show-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 74px;
+
+            &:active {
+                transform: scale(0.96);
+            }
+
+            button {
+                border: none;
+                border-radius: 6px;
+                background: #3563e9;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 10px 20px;
+                cursor: pointer;
+
+
+            }
+        }
+
+        .favorites-empty {
+            width: 100%;
+            max-width: 1312px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 10px;
+            border: 1px solid #C3D4E966;
+            padding: 28px;
+            color: #90a3bf;
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+
+    &.filter-open {
+        .categories-section {
+            .categories {
+                grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+                gap: 12px;
+
+                .left-side,
+                .right-side {
+                    width: 100%;
+                    padding: 18px 14px 12px 14px;
+                    min-height: 110px;
+
+                    .category-card {
+                        gap: 10px;
+
+                        .point {
+                            font-size: 14px;
+                        }
+
+                        .field {
+                            padding: 8px 8px;
+
+                            h4 {
+                                font-size: 13px;
+                            }
+
+                            .field-button {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+
+                .swap-icon {
+                    width: 48px;
+                    height: 48px;
+                    min-width: 48px;
+                    min-height: 48px;
+                    justify-self: center;
+                }
+            }
+        }
+
+        .popular-cars {
+            .section-header {
+                &.recommendation-header {
+                    display: none;
+                }
+            }
+
+            .section-header:not(.recommendation-header) {
+                display: none;
+            }
+
+            .car-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .recommendation-grid {
+                margin-top: 24px;
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .categories-section {
+            .categories {
+                grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+                gap: 10px;
+
+                .left-side,
+                .right-side {
+                    padding: 18px 14px 12px 14px;
+                    min-height: 108px;
+                }
+
+                .swap-icon {
+                    width: 44px;
+                    height: 44px;
+                    min-width: 44px;
+                    min-height: 44px;
+                    justify-self: center;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        padding: 24px 20px 0 20px;
+
+        .categories-section {
+            .categories {
+                grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr);
+                gap: 8px;
+
+                .left-side,
+                .right-side {
+                    padding: 14px 10px 10px 10px;
+                    min-height: auto;
+
+                    .category-card {
+                        gap: 8px;
+
+                        .point {
+                            font-size: 12px;
+                        }
+
+                        .field {
+                            padding: 6px 6px;
+
+                            h4 {
+                                font-size: 12px;
+                            }
+
+                            .field-button {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+
+                .swap-icon {
+                    width: 40px;
+                    height: 40px;
+                    min-width: 40px;
+                    min-height: 40px;
+
+                    img {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 16px 23px 0 23px;
+
+        .hero-wrapper {
+            height: auto;
+
+            .hero {
+                height: auto;
+                flex-direction: column;
+                gap: 14px;
+
+                .right {
+                    display: none;
+                }
+
+                .left {
+                    min-height: 214px;
+                    padding: 14px 23px;
+                    max-width: none;
+
+                    .text-content {
+                        max-width: 100%;
+                        gap: 12px;
+
+                        h2 {
+                            font-size: 17px;
+                            line-height: 1.25;
+                            max-width: 100%;
+                            white-space: nowrap;
+                        }
+
+                        p {
+                            font-size: 12px;
+                            line-height: 1.45;
+                            max-width: 250px;
+                        }
+
+                        .card-button {
+                            font-size: 12px;
+                            padding: 8px 14px;
+                            border-radius: 8px;
+                        }
+                    }
+
+                    >img {
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        transform: none;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+        .categories-section {
+            margin-top: 18px;
+
+            .categories {
+                grid-template-columns: 1fr;
+                gap: 10px;
+
+                .left-side,
+                .right-side {
+                    padding: 14px 12px 10px 12px;
+                    min-height: auto;
+
+                    .category-card {
+                        gap: 10px;
+
+                        .point {
+                            font-size: 13px;
+                        }
+
+                        .fields {
+                            gap: 6px;
+                        }
+
+                        .field {
+                            padding: 8px 6px;
+                            gap: 6px;
+
+                            h4 {
+                                font-size: 13px;
+                            }
+
+                            .field-button {
+                                font-size: 10px;
+
+                                img {
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .swap-icon {
+                    width: 44px;
+                    height: 44px;
+                    min-width: 44px;
+                    min-height: 44px;
+                    justify-self: center;
+
+                    img {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+        }
+
+        .popular-cars {
+            margin-top: 18px;
+
+            .section-header {
+                padding: 14px 6px 10px 6px;
+            }
+
+            .popular-grid-desktop {
+                display: none;
+            }
+
+            .popular-marquee {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .popular-marquee-track {
+                display: flex;
+                align-items: stretch;
+                gap: 12px;
+                width: max-content;
+                animation: mobileRowLeft 20s linear infinite;
+                will-change: transform;
+
+                .car-card {
+                    width: 250px;
+                    min-width: 250px;
+                    max-width: 250px;
+                    padding: 16px;
+                    border-radius: 10px;
+                    background: #FFFFFF;
+
+                    .card-top .car-title-wrap {
+                        h3 {
+                            font-size: 18px;
+                        }
+
+                        p {
+                            font-size: 14px;
+                            min-height: 20px;
+                        }
+                    }
+
+                    .car-image-box {
+                        min-height: 120px;
+                        padding-bottom: 14px;
+
+                        .car-image {
+                            max-width: 190px;
+                        }
+
+                        .car-shadow {
+                            max-width: 200px;
+                            bottom: 6px;
+                        }
+                    }
+
+                    .features {
+                        .features-svg {
+                            max-width: 198px;
+                        }
+                    }
+
+                    .card-bottom {
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 12px;
+                    }
+
+                    .price-box {
+                        align-items: flex-start;
+                        gap: 2px;
+                    }
+
+                    .price-box .price {
+                        font-size: 16px;
+                    }
+
+                    .price-box .old-price {
+                        font-size: 12px;
+                    }
+
+                    .detail-btn {
+                        font-size: 14px;
+                        padding: 10px 14px;
+                    }
+                }
+            }
+
+            .car-card {
+                padding: 12px;
+                width: 166px;
+                min-width: 166px;
+                flex: 0 0 166px;
+                margin-right: 0;
+                gap: 8px;
+                border-radius: 10px;
+
+                .card-top .car-title-wrap {
+                    h3 {
+                        font-size: 14px;
+                        line-height: 1.25;
+                    }
+
+                    p {
+                        font-size: 11px;
+                        min-height: 14px;
+                    }
+                }
+
+                .car-image-box {
+                    min-height: 78px;
+                    padding-bottom: 6px;
+
+                    .car-image {
+                        max-width: 132px;
+                    }
+
+                    .car-shadow {
+                        max-width: 140px;
+                        bottom: 8px;
+                    }
+                }
+
+                .features {
+                    .features-svg {
+                        max-width: 146px;
+                    }
+                }
+
+                .card-bottom {
+                    justify-content: space-between;
+                    gap: 8px;
+                }
+
+                .price-box {
+                    align-items: flex-start;
+                    gap: 2px;
+                }
+
+                .price-box .price {
+                    font-size: 14px;
+                }
+
+                .price-box .old-price {
+                    font-size: 10px;
+                }
+
+                .detail-btn {
+                    font-size: 11px;
+                    padding: 9px 12px;
+                }
+            }
+
+            .recommendation-grid {
+                animation: none;
+                transform: none;
+                display: flex;
+                flex-direction: column;
+                overflow: visible;
+                gap: 10px;
+
+                .car-card {
+                    width: 100%;
+                    min-width: 0;
+                    flex: none;
+
+                    .features {
+                        .features-svg {
+                            max-width: 150px;
+                        }
+                    }
+
+                    .detail-btn {
+                        font-size: 12px;
+                        padding: 9px 14px;
+                    }
+                }
+            }
+
+            .show-more {
+                margin-top: 24px;
+                margin-bottom: 8px;
+
+                button {
+                    padding: 10px 16px;
+                    font-size: 12px;
+                }
+            }
+
+            .favorites-empty {
+                padding: 18px;
+                font-size: 14px;
+            }
+        }
+
+        &.filter-open {
+            .categories-section {
+                .categories {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .popular-cars {
+                .popular-marquee {
+                    display: none;
+                }
+
+                .car-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    animation: none;
+                }
+
+                .recommendation-grid {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+
+}
+
+@keyframes mobileRowLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

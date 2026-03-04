@@ -1,0 +1,53 @@
+.favorites-page {
+
+    .favorites-empty {
+        width: 100%;
+        max-width: 1312px;
+        margin: 0 auto;
+        background: #FFFFFF;
+        border-radius: 10px;
+        border: 1px solid #C3D4E966;
+        padding: 28px;
+        color: #90a3bf;
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 768px) {
+    .favorites-page {
+        .popular-cars {
+            .section-header {
+                padding: 14px 6px 10px 6px;
+            }
+
+            .car-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .car-card {
+                width: 100%;
+                min-width: 0;
+                flex: none;
+
+                .features {
+                    .features-svg {
+                        max-width: 150px;
+                    }
+                }
+
+                .detail-btn {
+                    font-size: 12px;
+                    padding: 9px 14px;
+                }
+            }
+        }
+
+        .favorites-empty {
+            padding: 18px;
+            font-size: 14px;
+        }
+    }
+}
